@@ -28,7 +28,7 @@ module.exports = {
       sm: "768px",
       md: "1060px",
     },
-    "baseUrl": "."
+    "baseUrl": "./"
   },
   plugins: [lineClamp, typography],
 };

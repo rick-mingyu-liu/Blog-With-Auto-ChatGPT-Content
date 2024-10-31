@@ -7,6 +7,8 @@ import Sidebar from "./(shared)/Sidebar";
 import { prisma } from "./api/client"; // the app api
 import { Post } from "@prisma/client";
 
+export const revalidate = 60;
+
 const getPosts = async () => {
   const posts: Array<Post> = await prisma.post.findMany();
   return posts;
@@ -45,8 +47,8 @@ export default async function Home() {
         <Trending trendingPosts={trendingPosts}/>
         <div className="md:flex gap-10 mb-5">
           <div className="basis-3/4">
-            <Tech />
-            <Travel />
+            <Tech techPosts={techPosts}/>
+            <Travel travelPosts={travelPosts}/>
             <Other />
             <div className="hidden md:block">
               <Subscribe />

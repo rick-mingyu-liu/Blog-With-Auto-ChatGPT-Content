@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image';
-import SocialLinks from './socialLinks';
+import SocialLinks from './SocialLinks';
+import Ad1 from "../../public/assets/ad-1.jpg";
 
-type Props = {};
 
-const NavBar = (props: Props) => {
+const NavBar = () => {
     return (
         <header className='mb-5'>
             <nav className='flex justify-between items-center w-full bg-wh-900 text-wh-10 px-10 py-4'>
@@ -31,7 +31,17 @@ const NavBar = (props: Props) => {
                     </p>
                 </div>
                 <div className='basis-full relative w-auto h-32 bg-wh-500'>
-                    image right here
+                <Image
+                    fill
+                    alt="advert-1"
+                    placeholder="blur"
+                    src={Ad1}
+                    sizes="(max-width: 480px) 100vw,
+                            (max-width: 768px) 75vw,
+                            (max-width: 1060px) 50vw,
+                            33vw"
+                    style={{ objectFit: "cover" }}
+                />
                 </div>
             </div>
             <hr className='border-1 mx-10' />

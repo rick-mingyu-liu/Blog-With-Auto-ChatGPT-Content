@@ -97,7 +97,7 @@ const Content = ({ post }: Props) => {
                     <div className="flex justify-end">
                         <button 
                             type="submit"
-                            className="bg-accent-red hover:bg-wh-500 text-wh-10 py-2 px-5 mt-5"
+                            className="bg-accent-red hover:bg-wh-500 text-wh-10 py-2 px-5 mt-5 font-semibold"
 
                         >
                             SUBMIT

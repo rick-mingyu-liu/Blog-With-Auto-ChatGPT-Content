@@ -26,7 +26,7 @@ const Content = ({ post }: Props) => {
     const [tempContent, setTempContent] = useState<string>(content);
 
     const date = new Date(post?.createdAt);
-    const options = { year: "numeric", month: "long", day: "numeric" } as any;
+    const options: Intl.DateTimeFormatOptions = { year: "numeric", month: "long", day: "numeric" };
     const formattedDate = date.toLocaleDateString("en-US", options);
 
     const handleOnChangeTitle = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -39,7 +39,7 @@ const Content = ({ post }: Props) => {
         editor ?.setEditable(bool);
     }
 
-    const handleOnChangeContent = ({ editor }: any) => {
+    const handleOnChangeContent = ({ editor }: { editor: Editor }) => {
         if (!(editor as Editor).isEmpty) setContentError("");
         setContent((editor as Editor).getHTML());
     }

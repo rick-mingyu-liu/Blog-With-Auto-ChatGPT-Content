@@ -47,7 +47,7 @@ const Article = ({
 
   return (
     <article className="text-wh-500 leading-8">
-      {/* AI GENERATOR */}
+      {/* AI generator */}
       {isEditable && (
         <div className="border-2 rounded-md bg-wh-50 p-3 mb-3">
           <h4 className="m-0 p-0">Generate AI Content</h4>

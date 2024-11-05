@@ -18,9 +18,9 @@ const Card = ({
     isSmallCard = false, 
     isLongForm = false, 
     }: Props) => {
-        const { id, title, author, createdAt, image, snippet } = post || {};
+        const { title, author, createdAt, image, snippet } = post || {};
         const date = new Date(createdAt);
-        const options = { year: "numeric", month: "long", day: "numeric" } as any;
+        const options: Intl.DateTimeFormatOptions = { year: "numeric", month: "long", day: "numeric" };
         const formattedDate = date.toLocaleDateString("en-US", options);
 
         return (

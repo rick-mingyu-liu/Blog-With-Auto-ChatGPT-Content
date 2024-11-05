@@ -1,11 +1,16 @@
 import { NextResponse } from "next/server";
 import { prisma } from "../../client";
 
-type Params = { params: { id: string } };
+interface Context {
+  params: {
+    id: string;
+  };
+}
 
-export async function PATCH(request: Request, { params }: Params) {
+
+export async function PATCH(request: Request, context: Context) {
   try {
-    const { id } = params;
+    const { id } = context.params;
     const { title, content } = await request.json();
     const post = await prisma.post.update({
       where: { id: id },

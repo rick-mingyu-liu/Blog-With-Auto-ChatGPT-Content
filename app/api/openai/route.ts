@@ -13,12 +13,12 @@ export async function POST(request: Request) {
       model: "gpt-3.5-turbo",
       messages: [
         {
-          role: "system",
-          content: `${role || "I am a helpful assistant"}. Write with HTML tags.`,
+            role: "user",
+            content: `Create a 3-line blog post with HTML tags based on this title: ${title}`,
         },
         {
-          role: "user",
-          content: `Create a 3-line blog post with HTML tags based on this title: ${title}`,
+            role: "system",
+            content: `${role || "I am a helpful assistant"}. Write with HTML tags.`,
         },
       ],
     });

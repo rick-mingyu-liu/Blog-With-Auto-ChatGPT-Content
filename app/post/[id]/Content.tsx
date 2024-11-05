@@ -2,11 +2,10 @@
 import SocialLinks from "@/app/(shared)/SocialLinks";
 import { FormattedPost } from "@/app/type";
 
-import { Editor, EditorContent, useEditor } from "@tiptap/react";
+import { Editor, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Image from "next/image";
 import React, { useState } from "react";
-import EditorMenuBar from "./EditorMenuBar";
 import CategoryAndEdit from "./CategoryAndEdit";
 import Article from "./Article";
 

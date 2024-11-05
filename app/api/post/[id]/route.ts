@@ -1,16 +1,10 @@
 import { NextResponse } from "next/server";
 import { prisma } from "../../client";
 
-interface Context {
-  params: {
-    id: string;
-  };
-}
-
-
-export async function PATCH(request: Request, context: Context) {
+// Use the correct typing for the function's context argument
+export async function PATCH(request: Request, { params }: { params: { id: string } }) {
   try {
-    const { id } = context.params;
+    const { id } = params;
     const { title, content } = await request.json();
     const post = await prisma.post.update({
       where: { id: id },
@@ -19,6 +13,6 @@ export async function PATCH(request: Request, context: Context) {
     return NextResponse.json(post, { status: 200 });
   } catch (error) {
     console.error("request error", error);
-    NextResponse.json({ error: "error updating post" }, { status: 500 });
+    return NextResponse.json({ error: "error updating post" }, { status: 500 });
   }
 }

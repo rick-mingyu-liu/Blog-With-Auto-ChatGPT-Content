@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "../../client";
 
-type Params = { params: { id: string } };
-
-export async function PATCH(request: Request, { params }: Params) {
+export async function PATCH(request: Request, { params }: any) {
   try {
     const { id } = params;
     const { title, content } = await request.json();
@@ -14,6 +12,6 @@ export async function PATCH(request: Request, { params }: Params) {
     return NextResponse.json(post, { status: 200 });
   } catch (error) {
     console.error("request error", error);
-    NextResponse.json({ error: "error updating post" }, { status: 500 });
+    return NextResponse.json({ error: "error updating post" }, { status: 500 });
   }
 }

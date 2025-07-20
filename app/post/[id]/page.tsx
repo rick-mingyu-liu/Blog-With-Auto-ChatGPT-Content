@@ -23,7 +23,7 @@ const getPost = async (id: string) => {
 
   const formattedPost = {
     ...post,
-    createdAt: post?.createdAt?.toISOString(),
+    createdAt: post?.creatadAt?.toISOString(),
     updatedAt: post?.updatedAt?.toISOString(),
   };
 
@@ -31,7 +31,7 @@ const getPost = async (id: string) => {
 };
 
 const Post = async ({ params }: Props) => {
-  const { id } = params;
+  const { id } = await params;
   const post: FormattedPost | null = await getPost(id);
 
   if (!post) {
